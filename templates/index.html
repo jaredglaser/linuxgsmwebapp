@@ -1,0 +1,35 @@
+<script>function pop(value) {
+        var pass = prompt("Password for " + value, "Text");
+        const form = document.createElement('form');
+        form.method = 'post';
+        form.path = '/';
+
+        const passfield = document.createElement('input');
+        passfield.type = 'hidden';
+        passfield.name = 'pass';
+        passfield.value = pass;
+
+        const valuefield = document.createElement('input');
+        valuefield.type = 'hidden';
+        valuefield.name = 'value';
+        valuefield.value = value;
+
+        form.appendChild(passfield);
+        form.appendChild(valuefield);
+
+        document.body.appendChild(form);
+        form.submit();
+    }</script>
+
+
+<p> Shitty site to trigger Ark server tasks </p>
+{%if data != null %}
+<body onload="alert({{data}});"> </body>
+{%endif%}
+<button onclick="pop('Start')"> Start </button>
+<button onclick="pop('Stop')"> Stop </button>
+<button onclick="pop('Restart')"> Restart </button>
+<button onclick="pop('Update')"> Update </button>
+
+
+
